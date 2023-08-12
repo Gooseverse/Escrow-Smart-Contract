@@ -1,8 +1,11 @@
 # Escrow Smart Contract
 
-This is a simple Escrow smart contract written in Solidity. It allows users to deposit and withdraw ETHscriptions (ETH) and charges a 2% fee on each withdrawal. The collected fees are tracked and can be transferred to a designated wallet address when a certain threshold is reached.
+This is a simple Escrow smart contract written in Solidity. It allows users to deposit and withdraw ETHscriptions (ETH) and charges a 2% fee on each withdrawal sale. The collected fees are tracked and can be transferred to a designated wallet address when a certain threshold is reached.
 
 ## Getting Started
+
+tips appreciated but not recuired
+Gooseverse.eth
 
 ### Prerequisites
 
