@@ -1,0 +1,57 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract Escrow {
+    address public owner;
+    address public feeReceiver;
+    uint256 public totalFees;
+    
+    mapping(address => uint256) public balances;
+    
+    event EthscriptionDeposited(address indexed sender, uint256 amount);
+    event EthscriptionWithdrawn(address indexed recipient, uint256 amount);
+    
+    constructor(address _feeReceiver) {
+        owner = msg.sender;
+        feeReceiver = _feeReceiver;
+    }
+    
+    modifier onlyOwner() {
+        require(msg.sender == owner, "Only the owner can call this function");
+        _;
+    }
+    
+    function deposit() external payable {
+        require(msg.value > 0, "You must deposit some ETH");
+        
+        balances[msg.sender] += msg.value;
+        
+        emit EthscriptionDeposited(msg.sender, msg.value);
+    }
+    
+    function withdraw(uint256 amount) external {
+        require(amount > 0 && amount <= balances[msg.sender], "Invalid withdrawal amount");
+        
+        balances[msg.sender] -= amount;
+        msg.sender.transfer(amount);
+        
+        emit EthscriptionWithdrawn(msg.sender, amount);
+    }
+    
+    function collectFees() external onlyOwner {
+        require(totalFees >= 5 ether, "Fees collected are not sufficient");
+        
+        uint256 amountToTransfer = totalFees;
+        totalFees = 0;
+        
+        payable(feeReceiver).transfer(amountToTransfer);
+    }
+    
+    function recordFee(uint256 amount) external onlyOwner {
+        totalFees += amount;
+    }
+    
+    function getBalance(address account) external view returns (uint256) {
+        return balances[account];
+    }
+}
