@@ -1,0 +1,18 @@
+# Gooseverse Escrow Smart Contract
+
+This Solidity smart contract facilitates secure and transparent transactions with ETHscriptions. Users can deposit and withdraw ETHscriptions, with a 2% fee on withdrawals. Collected fees are stored and can be transferred to a designated wallet address when a threshold is met. Interact with the contract using provided scripts. Customize fee recipients and more in the configuration. Built by Gooseverse.
+
+## Features
+
+- Deposit and withdraw ETHscriptions
+- 2% fee on withdrawals 
+- Fee collection and transfer functionality
+- Configurable settings
+
+## Getting Started
+
+Follow the installation steps to deploy and interact with the smart contract on a local network.
+
+## License
+
+This project is open-source under the MIT License. Contributions are welcome.
