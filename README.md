@@ -4,7 +4,7 @@ This is a simple Escrow smart contract written in Solidity. It allows users to d
 
 ## Getting Started
 
-tips appreciated but not recuired
+tips appreciated but not required
 Gooseverse.eth
 
 ### Prerequisites
